@@ -8,7 +8,7 @@ public class Main {
     Number number = new Number();
         Scanner console = new Scanner(System.in);
         String str;
-
+        // расчет стоимости зависящей от растояния до пункта назначения
         int param1, distance, num;
         System.out.println("Введите расстояние до пункта назначения");
         num = -1;
@@ -25,14 +25,14 @@ public class Main {
             if (num == -2) {
                 System.out.println("Ошибка");
             }
-
         }
         distance = num;
         param1 = dest.dest(num);
-
+        //Расчет надбавки за габариты
     Gabarit gabarit = new Gabarit();
-        int x, y, z;
+        int length, width, high;
         int param2;
+        //Ввод длины
         num = -1;
         System.out.println("Введите длинну");
         while (num <= 0){
@@ -50,8 +50,8 @@ public class Main {
             }
 
         }
-        x = num;
-
+        length = num;
+        //Ввод ширины
         num = -1;
         System.out.println("Введите Ширину");
         while (num <= 0){
@@ -69,8 +69,8 @@ public class Main {
             }
 
         }
-        y = num;
-
+        width = num;
+        //Ввод высоты
         num = -1;
         System.out.println("Введите Высоту");
         while (num <= 0){
@@ -88,9 +88,10 @@ public class Main {
             }
 
         }
-        z = num;
-    param2 = gabarit.gabarit(x, y, z);
+        high = num;
 
+    param2 = gabarit.gabarit(length, width, high);
+//Спрашиваем про шрупкость груза
     Fragility fragility = new Fragility();
         String f;
     int param3;
@@ -107,7 +108,7 @@ public class Main {
         param3 = fragility.frag(f);
     Load load = new Load();
 
-
+//Спрашиваем про степень загруженности
     double param4;
         System.out.println("Введите степень загруженности от 1 до 4");
         num = -1;
@@ -130,7 +131,7 @@ public class Main {
             }
         }
         param4 = load.load(num);
-
+//Расчет суммы доставки.
     Sum sum = new Sum();
     Double summa;
     summa = sum.Sum(distance, param1, param2, param3, param4);
